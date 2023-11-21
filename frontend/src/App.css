@@ -61,6 +61,10 @@
 /* Estilos del héroe (fondo) */
 .hero {
   background-color: #cdcfd2;
+  background-image: url('../public/fondo.jpg'); 
+  background-size: cover; 
+  background-position: center;
+  background-repeat: no-repeat; 
   position: relative;
   height: 100vh;
   overflow: hidden;
@@ -70,6 +74,7 @@
   align-items: center;
   justify-content: center;
 }
+
 
 /* Estilos del título del héroe */
 .hero__title {
@@ -92,9 +97,10 @@
   width: 10px;
   height: 10px;
   border: solid 1px #003298;
+  border-radius: 50%;
   transform-origin: top left;
   transform: scale(0) rotate(0deg) translate(-50%, -50%);
-  animation: cube 12s ease-in forwards infinite;
+  animation: cube 10s ease-in forwards infinite;
 }
 
 /* Estilos específicos para cubos pares e impares */
@@ -102,27 +108,27 @@
   border-color: #0051f4;
 }
 .cube:nth-child(2) {
-  animation-delay: 2s;
+  animation-delay: 1s;
   left: 25vw;
   top: 40vh;
 }
 .cube:nth-child(3) {
-  animation-delay: 4s;
+  animation-delay: 2s;
   left: 75vw;
   top: 50vh;
 }
 .cube:nth-child(4) {
-  animation-delay: 6s;
+  animation-delay: 3s;
   left: 90vw;
   top: 10vh;
 }
 .cube:nth-child(5) {
-  animation-delay: 8s;
+  animation-delay: 4s;
   left: 10vw;
   top: 85vh;
 }
 .cube:nth-child(6) {
-  animation-delay: 10s;
+  animation-delay: 5s;
   left: 50vw;
   top: 10vh;
 }
@@ -137,6 +143,10 @@
     transform: scale(20) rotate(960deg) translate(-50%, -50%);
     opacity: 0;
   }
+}
+
+.fadeInUpAnimation {
+  animation: fadeInUp 0.5s ease-in-out;
 }
 
 /* Estilos de la lista de tareas */

@@ -39,7 +39,7 @@ function App() {
   // Renderizado del componente App
   return (
     <div className="hero App-Header">
-      <div className="hero__title">
+      <div className="hero__title fadeInUpAnimation">
         {/* Botones para mostrar los modales */}
         <div className="d-flex justify-content-start superior">
           <button className="custom-button m-1" onClick={handleShowUsuariosModal}>
@@ -61,13 +61,6 @@ function App() {
         {showUsuariosModal && <Usuarios onClose={cierremodalusers} />}
       </div>
 
-      {/* Elementos de diseño (cubos) */}
-      <div className="cube"></div>
-      <div className="cube"></div>
-      <div className="cube"></div>
-      <div className="cube"></div>
-      <div className="cube"></div>
-      <div className="cube"></div>
     </div>
   );
 }

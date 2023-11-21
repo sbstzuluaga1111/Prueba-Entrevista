@@ -1,8 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const api = require('../controllers/get/apiGET.controller.js');
-router.get('/', api);
+
 
 const usuariosget = require('../controllers/get/usuariosGET.controller.js');
 router.get('/usuarios', usuariosget);

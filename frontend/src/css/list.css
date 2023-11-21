@@ -10,10 +10,10 @@
   }
 }
 
-/* Clase para aplicar la animación fadeInUp */
 .fadeInUpAnimation {
-  animation: fadeInUp 0.5s ease-in-out;
+  animation: fadeInUp 0.5s ease; /* Ajusta la duración y la función de tiempo según tus preferencias */
 }
+
 
 /* Clase para elementos con posición absoluta */
 .solid {
@@ -75,11 +75,13 @@
 /* Estilos para los elementos de la lista */
 .list-group-item {
   margin: 1%;
+  color: black;
 }
 
 /* Estilos para el contenedor de la lista */
 .list-group {
   width: 100%;
+  color: black;
 }
 
 /* Estilos responsivos para pantallas pequeñas */
@@ -87,4 +89,8 @@
   .formulario {
     margin-top: 150%;
   }
+}
+
+.list-group-item:hover {
+  transform: translateY(-5px);
 }

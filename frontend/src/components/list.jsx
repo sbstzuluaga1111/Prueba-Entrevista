@@ -82,70 +82,89 @@ const List = () => {
 
   return (
     <div className='center formulario' style={{ position: 'relative', width: '90%' }}>
-      <h2 style={{ position: 'absolute', top: 0, left: 0, width: '100%', padding: '10px', zIndex: 1 }}>
+      <h1 style={{ position: 'absolute', top: 0, left: 0, width: '100%', padding: '10px', zIndex: 1 }}>
         Lista de Tareas
-      </h2>
-      {/* Lista de tareas */}
+      </h1>
+  
       <ul className="list-group" style={{ position: 'relative', marginTop: '50px' }}>
-        {currentTasks.map((task) => (
-          <li key={task._id} className={`list-group-item ${expandedTask === task._id ? 'expanded' : ''}`}>
-            {/* Encabezado de la tarea */}
-            <div
-              className="d-flex justify-content-between align-items-center bg-primary p-2 rounded text-white"
-              onClick={() => handleToggle(task._id)}
-              style={{ cursor: 'pointer', position: 'relative' }}
-            >
-              <span>{task.titulo}</span>
-              {/* Botones de acción */}
-              <div className="d-flex justify-content-end mt-2 align-items-center flex-column flex-sm-row">
-                <button className="btn btn-warning m-2 rounded-top" onClick={() => handleEdit(task)}>
-                  Editar
-                </button>
-                <button className="btn btn-danger ml-2 m-2 rounded-top" onClick={() => handleDelete(task._id)}>
-                  Eliminar
-                </button>
-              </div>
-            </div>
-            {/* Contenido expandido de la tarea */}
-            {expandedTask === task._id && (
-              <div className='contenidolit m-3' style={{ position: 'relative' }}>
-                <br />
-                <div className="container bg-light p-3 rounded">
-                  <strong className="font-weight-bold">Descripción:</strong>
-                  <p>{task.descripcion}</p>
-                </div>
-                {/* Detalles adicionales de la tarea */}
-                <div className='container'>
-                  <strong>Estado:</strong> {task.estado} <br />
-                  <strong>Usuario:</strong> {users[task.usuario_id] || 'Sin asignar'} <br />
-                  <strong>Tiempo Inicio:</strong> {new Date(task.tiempo_inicio).toLocaleString()} <br />
-                  <strong>Tiempo Final:</strong> {new Date(task.tiempo_final).toLocaleString()} <br />
-                </div>
-              </div>
-            )}
-          </li>
-        ))}
-      </ul>
+  {currentTasks.map((task) => (
+    <li
+      key={task._id}
+      className={`list-group-item ${expandedTask === task._id ? 'expanded' : ''}`}
+      style={{
+        maxHeight: expandedTask === task._id ? '600px' : '200px',
+        overflow: 'hidden',
+        transition: 'max-height 0.5s ease, transform 0.2s ease',
+      }}
+    >
+      <div
+        className={`d-flex justify-content-between align-items-center p-2 rounded text-white ${expandedTask === task._id ? 'expanded' : ''}`}
+        style={{
+          cursor: 'pointer',
+          position: 'relative',
+          backgroundColor: expandedTask === task._id ? 'rgba(0, 123, 255, 0.7)' : 'rgba(0, 123, 255, 0.5)',
+          transition: 'background-color 0.5s ease',
+        }}
+        onClick={() => handleToggle(task._id)}
+      >
+        <span className='hove' style={{ color: expandedTask === task._id ? 'white' : 'black' }}>
+          {task.titulo}
+        </span>
+        <div className="d-flex justify-content-end mt-2 align-items-center flex-column flex-sm-row">
+          <button className="btn btn-warning m-2 rounded-top" onClick={() => handleEdit(task)}>
+            Editar
+          </button>
+          <button className="btn btn-danger ml-2 m-2 rounded-top" onClick={() => handleDelete(task._id)}>
+            Eliminar
+          </button>
+        </div>
+      </div>
 
-      {/* Paginación */}
-      <Pagination className="mt-3 d-flex justify-content-center">
-        {[...Array(Math.ceil(tasks.length / tasksPerPage)).keys()].map((number) => (
-          <Pagination.Item key={number + 1} active={number + 1 === currentPage} onClick={() => paginate(number + 1)}>
-            {number + 1}
-          </Pagination.Item>
-        ))}
-      </Pagination>
-
-      {/* Editar tarea (modal) */}
-      {selectedTask && (
-        <Edit
-          task={selectedTask}
-          onClose={() => {
-            setSelectedTask(null);
+      {expandedTask === task._id && (
+        <div
+          className='contenidolit m-3 fadeInUpAnimation'
+          style={{
+            position: 'relative',
+            overflow: 'hidden',
+            transition: 'max-height 0.5s ease',
+            maxHeight: '500px',
+            textAlign: 'justify',
           }}
-        />
+        >
+          <br />
+          <div className="container bg-light p-3 rounded">
+            <strong className="font-weight-bold">Descripción:</strong>
+            <p>{task.descripcion}</p>
+          </div>
+          <div className='container'>
+            <strong>Estado:</strong> {task.estado} <br />
+            <strong>Usuario:</strong> {users[task.usuario_id] || 'Sin asignar'} <br />
+            <strong>Tiempo Inicio:</strong> {new Date(task.tiempo_inicio).toLocaleString()} <br />
+            <strong>Tiempo Final:</strong> {new Date(task.tiempo_final).toLocaleString()} <br />
+          </div>
+        </div>
       )}
-    </div>
+    </li>
+  ))}
+</ul>
+  
+      <Pagination className="mt-3 d-flex justify-content-center" style={{ backgroundColor: expandedTask ? 'rgba(0, 123, 255, 0.7)' : 'rgba(0, 123, 255, 0.5)' }}>
+      {[...Array(Math.ceil(tasks.length / tasksPerPage)).keys()].map((number) => (
+        <Pagination.Item key={number + 1} active={number + 1 === currentPage} onClick={() => paginate(number + 1)}>
+          {number + 1}
+        </Pagination.Item>
+      ))}
+    </Pagination>
+
+    {selectedTask && (
+      <Edit
+        task={selectedTask}
+        onClose={() => {
+          setSelectedTask(null);
+        }}
+      />
+    )}
+  </div>
   );
 };
 
