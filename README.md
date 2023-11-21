@@ -18,7 +18,8 @@ Se inicia el programa
 npm start
 ```
 **rutas:**
-GETS:
+
+GET:
 ```
 http://localhost:3000/leer/tareas
 
