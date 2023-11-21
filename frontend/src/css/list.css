@@ -1,0 +1,90 @@
+/* Animación de aparición desde abajo */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Clase para aplicar la animación fadeInUp */
+.fadeInUpAnimation {
+  animation: fadeInUp 0.5s ease-in-out;
+}
+
+/* Clase para elementos con posición absoluta */
+.solid {
+  position: absolute;
+}
+
+/* Estilos para botones personalizados */
+.custom-button {
+  padding: 0.5rem 1rem;
+  background-color: #ffffff55;
+  color: black;
+  border: 1px solid black;
+  border-bottom: none;
+  border-radius: 1rem 1rem 0 0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  z-index: 1;
+  position: relative;
+  top: 5px;
+
+  &:hover {
+    background-color: #0056b3;
+    color: #fff;
+  }
+
+  &:active {
+    background-color: #003366;
+    color: #fff;
+  }
+}
+
+/* Contenido expandible */
+.expandable-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+
+.expandable-content.show {
+  max-height: 600px;
+  transition: max-height 0.3s ease-in;
+}
+
+/* Contenido de la lista */
+.contenidolit {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+/* Estilos para centrar elementos en la parte inferior */
+.center {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+/* Estilos para los elementos de la lista */
+.list-group-item {
+  margin: 1%;
+}
+
+/* Estilos para el contenedor de la lista */
+.list-group {
+  width: 100%;
+}
+
+/* Estilos responsivos para pantallas pequeñas */
+@media (max-width: 768px) {
+  .formulario {
+    margin-top: 150%;
+  }
+}

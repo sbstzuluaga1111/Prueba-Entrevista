@@ -1,0 +1,151 @@
+/* Estilos generales de la aplicación */
+.App {
+  text-align: center;
+}
+
+/* Estilos del contenedor de la lista */
+.scroll-container {
+  max-height: 90vh;
+  overflow-y: auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 45rem; /* Ajuste del espaciado superior */
+}
+
+/* Estilos responsivos para pantallas pequeñas */
+@media (max-width: 768px) {
+  .scroll-container {
+    padding-top: 50rem; /* Ajuste del espaciado superior para pantallas pequeñas */
+    overflow-y: auto;
+  }
+}
+
+/* Estilos del logo de la aplicación */
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+/* Animación del logo si no se prefiere reducción de movimiento */
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+/* Estilos del encabezado de la aplicación */
+.App-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: black;
+}
+
+/* Estilos de los enlaces en la aplicación */
+.App-link {
+  color: #61dafb;
+}
+
+/* Estilos del contenedor superior */
+.superior {
+  height: 90%;
+  width: 100%;
+}
+
+/* Fuentes importadas de Google Fonts */
+@import url("https://fonts.googleapis.com/css?family=Montserrat:700");
+
+/* Estilos del héroe (fondo) */
+.hero {
+  background-color: #cdcfd2;
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  font-size: calc(10px + 2vmin);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Estilos del título del héroe */
+.hero__title {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  z-index: 1;
+  margin-bottom: 20%;
+  margin-top: 20%;
+}
+
+/* Estilos de los cubos animados */
+.cube {
+  position: absolute;
+  top: 80vh;
+  left: 45vw;
+  width: 10px;
+  height: 10px;
+  border: solid 1px #003298;
+  transform-origin: top left;
+  transform: scale(0) rotate(0deg) translate(-50%, -50%);
+  animation: cube 12s ease-in forwards infinite;
+}
+
+/* Estilos específicos para cubos pares e impares */
+.cube:nth-child(2n) {
+  border-color: #0051f4;
+}
+.cube:nth-child(2) {
+  animation-delay: 2s;
+  left: 25vw;
+  top: 40vh;
+}
+.cube:nth-child(3) {
+  animation-delay: 4s;
+  left: 75vw;
+  top: 50vh;
+}
+.cube:nth-child(4) {
+  animation-delay: 6s;
+  left: 90vw;
+  top: 10vh;
+}
+.cube:nth-child(5) {
+  animation-delay: 8s;
+  left: 10vw;
+  top: 85vh;
+}
+.cube:nth-child(6) {
+  animation-delay: 10s;
+  left: 50vw;
+  top: 10vh;
+}
+
+/* Animación de los cubos */
+@keyframes cube {
+  from {
+    transform: scale(0) rotate(0deg) translate(-50%, -50%);
+    opacity: 1;
+  }
+  to {
+    transform: scale(20) rotate(960deg) translate(-50%, -50%);
+    opacity: 0;
+  }
+}
+
+/* Estilos de la lista de tareas */
+.lista {
+  background-color: #ffffff55;
+  border: 1px solid black;
+}
+
+/* Estilos específicos para el último elemento */
+.ult {
+  width: 90%;
+}

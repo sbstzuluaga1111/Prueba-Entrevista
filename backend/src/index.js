@@ -1,6 +1,7 @@
 require('dotenv').config({ path: './src/.env' });
 const express = require('express');
 const connectDB = require('./db');
+const cors = require('cors');
 
 const getRoutes = require('./routes/get.routes.js');
 const postRoutes = require('./routes/post.routes.js');
@@ -9,6 +10,7 @@ const updateRoutes = require('./routes/update.routes.js');
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 const port = process.env.PORT || 3000;
 
 // Llamado de rutas GET
