@@ -17,7 +17,7 @@ Se inicia el programa
 ```
 npm start
 ```
-**rutas:**
+**Rutas:**
 
 GET:
 ```
@@ -88,7 +88,8 @@ Start the program:
 ```
 npm start
 ```
-Routes:
+**Routes:**
+
 GETS:
 ```
 http://localhost:3000/leer/tareas
